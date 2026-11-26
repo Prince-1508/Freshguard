@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b2b">
+  <title>FreshGuard — Food Freshness Intelligence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- INTRO ANIMATION -->
+  <div class="intro-screen" id="introScreen" aria-label="DSEU and FreshGuard project introduction">
+    <div class="intro-orbit orbit-one"></div>
+    <div class="intro-orbit orbit-two"></div>
+
+    <div class="intro-content">
+      <div class="intro-kicker">A UNIVERSITY PROJECT PRESENTATION</div>
+
+      <div class="intro-partners">
+        <div class="intro-logo-card">
+          <img src="assets/dseu-logo.png" alt="Delhi Skill and Entrepreneurship University logo">
+        </div>
+
+        <div class="partnership-mark">
+          <span>×</span>
+          <small>ACADEMIC<br>PROJECT</small>
+        </div>
+
+        <div class="freshguard-intro-mark">
+          <span class="intro-leaf">✳</span>
+          <strong>fresh<span>guard</span></strong>
+          <small>FOOD FRESHNESS INTELLIGENCE</small>
+        </div>
+      </div>
+
+      <div class="intro-rule"></div>
+
+      <h1>Smarter freshness.<br><em>Less food waste.</em></h1>
+      <p>Cold-chain intelligence & shelf-life decision support</p>
+
+      <div class="intro-loading"><i></i></div>
+
+      <button class="intro-skip" id="introSkip">
+        Enter FreshGuard <span>→</span>
+      </button>
+    </div>
+
+    <div class="intro-footer">
+      DELHI SKILL AND ENTREPRENEURSHIP UNIVERSITY
+      <span>•</span>
+      FRESHGUARD
+    </div>
+  </div>
+
+
+  <!-- MAIN APPLICATION -->
+  <div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+      <a class="brand" href="#" data-page="overview">
+        <span class="brand-mark">✳</span>
+        <span>
+          fresh<span class="brand-light">guard</span>
+          <small>FOOD INTELLIGENCE</small>
+        </span>
+      </a>
+
+      <div class="workspace-label">WORKSPACE</div>
+
+      <nav class="nav">
+        <button class="nav-link active" data-page="overview">
+          <span>▦</span> Overview
+        </button>
+
+        <button class="nav-link" data-page="inventory">
+          <span>▤</span> Inventory <b id="navInventoryCount">8</b>
+        </button>
+
+        <button class="nav-link" data-page="journeys">
+          <span>⌁</span> Batch journeys
+        </button>
+
+        <button class="nav-link" data-page="fleet">
+          <span>▰</span> Fleet tracking <b class="nav-live">LIVE</b>
+        </button>
+
+        <button class="nav-link" data-page="decisions">
+          <span>✳</span> Decision center
+        </button>
+
+        <button class="nav-link" data-page="monitoring">
+          <span>◉</span> Live monitoring
+        </button>
+
+        <button class="nav-link" data-page="simulator">
+          <span>⌁</span> What-if simulator
+        </button>
+
+        <button class="nav-link" data-page="analytics">
+          <span>▥</span> Analytics & reports
+        </button>
+
+        <button class="nav-link" data-page="team">
+          <span>♧</span> Project team
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="demo-card">
+          <span class="pulse"></span>
+          <div>
+            <strong>Simulation mode</strong>
+            <small>Prototype telemetry active</small>
+          </div>
+        </div>
+
+        <div class="profile">
+          <div class="avatar">FG</div>
+          <div>
+            <strong>FreshGuard Admin</strong>
+            <small>Demo organisation</small>
+          </div>
+          <span class="dots">•••</span>
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+
+        <div class="crumb">
+          Workspace <span>/</span>
+          <strong id="pageCrumb">Overview</strong>
+        </div>
+
+        <div class="top-actions">
+          <span class="demo-pill"><i></i> DEMO ENVIRONMENT</span>
+          <button class="icon-btn" id="alertsButton" title="View alerts">
+            ♧<em id="alertDot"></em>
+          </button>
+          <div class="top-avatar">FG</div>
+        </div>
+      </header>
+
+
+      <!-- OVERVIEW PAGE -->
+      <section class="page active" id="page-overview">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">
+              THURSDAY, NOVEMBER 26, 2026
+              <span class="live-label"><i></i> SIMULATED LIVE</span>
+            </div>
+            <h1>Good afternoon, Admin.</h1>
+            <p>Here's what's happening across your cold-chain operations.</p>
+          </div>
+
+          <button class="btn btn-primary" data-action="add-batch">
+            ＋ Add new batch
+          </button>
+        </div>
+
+        <div class="stat-grid">
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Total active batches</span>
+              <span class="stat-icon green">▤</span>
+            </div>
+            <strong id="statBatches">08</strong>
+            <small><span class="positive">↑ 2</span> from last week</small>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Produce at risk</span>
+              <span class="stat-icon amber">⚠</span>
+            </div>
+            <strong id="statRisk">02</strong>
+            <small>Requires attention today</small>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Avg. remaining shelf life</span>
+              <span class="stat-icon blue">◷</span>
+            </div>
+            <strong id="statLife">6.4 <small>days</small></strong>
+            <small>Across active inventory</small>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Temperature alerts</span>
+              <span class="stat-icon red">⌁</span>
+            </div>
+            <strong id="statAlerts">04</strong>
+            <small>Across 3 monitored locations</small>
+          </article>
+        </div>
+
+
+        <div class="content-grid overview-grid">
+
+          <article class="panel chart-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Temperature overview</h2>
+                <p>Telemetry trend · rolling 12-hour window</p>
+              </div>
+
+              <select id="temperatureRange">
+                <option value="12">Last 12 hours</option>
+                <option value="24">Last 24 hours</option>
+              </select>
+            </div>
+
+            <div class="chart-wrap">
+              <canvas id="temperatureChart"></canvas>
+            </div>
+
+            <div class="chart-legend">
+              <span><i class="legend-dot green-dot"></i> Warehouse A</span>
+              <span><i class="legend-dot orange-dot"></i> Transit truck</span>
+              <span><i class="legend-dot blue-dot"></i> Warehouse B</span>
+            </div>
+          </article>
+
+          <article class="panel risk-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Inventory health</h2>
+                <p>Current batch distribution</p>
+              </div>
+              <span class="more">•••</span>
+            </div>
+
+            <div class="health-ring">
+              <div>
+                <strong id="healthyPercent">63%</strong>
+                <small>Healthy batches</small>
+              </div>
+            </div>
+
+            <div class="health-legend">
+              <span><i class="legend-dot green-dot"></i> Healthy <b id="healthyCount">5</b></span>
+              <span><i class="legend-dot orange-dot"></i> Watch <b id="watchCount">2</b></span>
+              <span><i class="legend-dot red-dot"></i> At risk <b id="riskCount">1</b></span>
+            </div>
+          </article>
+
+        </div>
+
+
+        <!-- TRUCK OVERVIEW -->
+        <article class="panel live-truck-panel">
+
+          <div class="panel-heading">
+            <div>
+              <div class="eyebrow">ACTIVE CONSIGNMENT · TRK-204</div>
+              <h2>Live truck movement</h2>
+              <p>Tomatoes · Batch TOM-1024 · Warehouse A → Warehouse B</p>
+            </div>
+            <span class="live-label"><i></i> TELEMETRY STREAM</span>
+          </div>
+
+          <div class="truck-overview">
+
+            <div class="truck-scene compact-scene">
+              <div class="scene-sky">
+                <span class="sun">☀</span>
+                <span class="cloud cloud-one">☁</span>
+                <span class="cloud cloud-two">☁</span>
+              </div>
+
+              <div class="scene-hills"></div>
+
+              <div class="road">
+                <span class="road-dashes"></span>
+
+                <div class="animated-truck">
+                  <div class="truck-cargo">
+                    <span>🍅</span>
+                    <span>🍅</span>
+                    <span>🍅</span>
+                  </div>
+                  <div class="truck-cabin"></div>
+                  <i class="wheel wheel-a"></i>
+                  <i class="wheel wheel-b"></i>
+                </div>
+              </div>
+
+              <div class="scene-label start-label">WAREHOUSE A</div>
+              <div class="scene-label end-label">WAREHOUSE B</div>
+            </div>
+
+
+            <div class="truck-telemetry">
+
+              <div class="telemetry-primary">
+                <span>Inside cargo temperature</span>
+                <strong id="truckInsideTemp">18.4°<small>C</small></strong>
+                <em id="truckTempState" class="state-warning">Above target range</em>
+              </div>
+
+              <div class="telemetry-mini">
+                <div>
+                  <small>Outside ambient</small>
+                  <strong id="truckOutsideTemp">31.2°C</strong>
+                </div>
+
+                <div>
+                  <small>Relative humidity</small>
+                  <strong id="truckHumidity">76%</strong>
+                </div>
+
+                <div>
+                  <small>Vehicle speed</small>
+                  <strong id="truckSpeed">42 km/h</strong>
+                </div>
+              </div>
+
+              <div class="truck-progress">
+                <div>
+                  <span>Distance to destination</span>
+                  <strong id="truckDistance">18.6 km</strong>
+                </div>
+
+                <div class="progress-track">
+                  <i id="truckProgressBar"></i>
+                </div>
+
+                <div class="progress-foot">
+                  <span id="truckOrigin">Warehouse A</span>
+                  <span id="truckEta">ETA 28 min</span>
+                  <span>Warehouse B</span>
+                </div>
+              </div>
+
+              <button class="text-btn" data-page="fleet">
+                Open fleet tracking →
+              </button>
+
+            </div>
+          </div>
+
+          <div class="data-provenance">
+            <span class="source-dot"></span>
+            Telemetry profile: FG-TRK-204 · GPS + temperature gateway · Prototype stream
+          </div>
+        </article>
+
+
+        <!-- PRIORITY BATCHES -->
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Priority batches</h2>
+              <p>Batches that need your attention first</p>
+            </div>
+            <button class="text-btn" data-page="inventory">View all inventory →</button>
+          </div>
+
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>PRODUCT / BATCH</th>
+                  <th>LOCATION</th>
+                  <th>TEMP.</th>
+                  <th>REMAINING LIFE</th>
+                  <th>STATUS</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="priorityTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+
+        <div class="bottom-grid">
+
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Smart recommendations</h2>
+                <p>Suggested actions from the prediction engine</p>
+              </div>
+              <span class="ai-tag">✳ ENGINE</span>
+            </div>
+            <div id="recommendationList" class="recommendation-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Recent activity</h2>
+                <p>Latest simulated supply-chain events</p>
+              </div>
+            </div>
+            <div id="activityList" class="activity-list"></div>
+          </article>
+
+        </div>
+      </section>
+
+
+      <!-- INVENTORY PAGE -->
+      <section class="page" id="page-inventory">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">PRODUCE MANAGEMENT</div>
+            <h1>Inventory</h1>
+            <p>Track every batch from intake to dispatch.</p>
+          </div>
+          <button class="btn btn-primary" data-action="add-batch">＋ Add new batch</button>
+        </div>
+
+        <div class="filter-row">
+          <div class="search-box">
+            ⌕ <input id="inventorySearch" placeholder="Search product or batch ID...">
+          </div>
+
+          <select id="statusFilter">
+            <option value="all">All statuses</option>
+            <option value="Healthy">Healthy</option>
+            <option value="Watch">Watch</option>
+            <option value="At risk">At risk</option>
+          </select>
+
+          <select id="typeFilter">
+            <option value="all">All produce</option>
+            <option>Fruit</option>
+            <option>Vegetable</option>
+          </select>
+        </div>
+
+        <article class="panel">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>PRODUCT / BATCH</th>
+                  <th>TYPE</th>
+                  <th>QUANTITY</th>
+                  <th>LOCATION</th>
+                  <th>TEMP.</th>
+                  <th>REMAINING LIFE</th>
+                  <th>STATUS</th>
+                  <th>ACTION</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+      </section>
+
+
+      <!-- JOURNEYS PAGE -->
+      <section class="page" id="page-journeys">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">COLD-CHAIN TRACEABILITY</div>
+            <h1>Batch journeys</h1>
+            <p>Understand how every stop and temperature excursion affects freshness.</p>
+          </div>
+
+          <select id="journeySelect" class="wide-select"></select>
+        </div>
+
+        <div id="journeyDetail"></div>
+
+      </section>
+
+
+      <!-- FLEET PAGE -->
+      <section class="page" id="page-fleet">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">CONNECTED FLEET · CONSIGNMENT MONITORING</div>
+            <h1>Fleet tracking</h1>
+            <p>Follow the vehicle, cargo conditions and estimated arrival at the destination.</p>
+          </div>
+          <span class="live-label"><i></i> POSITION UPDATING</span>
+        </div>
+
+        <div class="fleet-layout">
+
+          <article class="panel route-panel">
+
+            <div class="panel-heading">
+              <div>
+                <div class="eyebrow">ROUTE OVERVIEW · SCHEMATIC</div>
+                <h2>TRK-204 · Fresh produce transfer</h2>
+                <p>Warehouse A, Sector 18 → Warehouse B, Distribution Hub</p>
+              </div>
+              <span class="status Watch">In transit</span>
+            </div>
+
+            <div class="route-map">
+
+              <div class="map-grid"></div>
+
+              <svg class="route-svg" viewBox="0 0 900 360" preserveAspectRatio="none" aria-label="Schematic route from Warehouse A to Warehouse B">
+
+                <path class="route-shadow" d="M72 270 C170 270 145 95 280 112 S420 285 525 215 S690 85 820 105"/>
+
+                <path class="route-line" d="M72 270 C170 270 145 95 280 112 S420 285 525 215 S690 85 820 105"/>
+
+                <path class="route-completed" id="routeCompleted" d="M72 270 C170 270 145 95 280 112 S420 285 525 215 S690 85 820 105"/>
+
+                <circle cx="72" cy="270" r="10" class="route-pin origin-pin"/>
+                <circle cx="820" cy="105" r="10" class="route-pin destination-pin"/>
+
+                <g class="map-warehouse" transform="translate(34 190)">
+                  <rect width="76" height="43" rx="7"/>
+                  <path d="M9 18 L38 4 L67 18 V37 H9Z"/>
+                  <text x="38" y="58">ORIGIN</text>
+                </g>
+
+                <g class="map-warehouse" transform="translate(775 28)">
+                  <rect width="76" height="43" rx="7"/>
+                  <path d="M9 18 L38 4 L67 18 V37 H9Z"/>
+                  <text x="38" y="58">DESTINATION</text>
+                </g>
+
+                <g id="mapTruck" class="map-truck">
+                  <circle r="19" class="truck-halo"/>
+                  <text y="7" text-anchor="middle">🚚</text>
+                </g>
+
+              </svg>
+
+              <div class="map-caption">
+                <span>LIVE VEHICLE POSITION</span>
+                <strong id="routeProgressText">68% route completed</strong>
+              </div>
+
+            </div>
+
+            <div class="route-endpoints">
+
+              <div>
+                <span class="endpoint-dot green-dot"></span>
+                <div>
+                  <strong>Warehouse A</strong>
+                  <small>Dispatch point · Sector 18</small>
+                </div>
+              </div>
+
+              <div class="route-distance">
+                <strong id="fleetDistance">18.6 km</strong>
+                <small>remaining distance</small>
+              </div>
+
+              <div>
+                <span class="endpoint-dot blue-dot"></span>
+                <div>
+                  <strong>Warehouse B</strong>
+                  <small>Destination · Distribution Hub</small>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+
+          <div class="fleet-side">
+
+            <article class="panel eta-card">
+              <div class="eyebrow">ESTIMATED ARRIVAL</div>
+              <strong id="fleetEta">28 <small>min</small></strong>
+              <p id="fleetArrivalClock">Expected arrival · 16:05</p>
+              <div class="eta-track"><i id="etaProgress"></i></div>
+              <small class="muted">Based on simulated GPS position and average speed</small>
+            </article>
+
+            <article class="panel vehicle-card">
+
+              <div class="panel-heading">
+                <div>
+                  <h2>Vehicle details</h2>
+                  <p>Refrigerated transport unit</p>
+                </div>
+                <span class="vehicle-icon">🚛</span>
+              </div>
+
+              <div class="detail-line">
+                <span>Vehicle ID</span>
+                <strong>TRK-204</strong>
+              </div>
+
+              <div class="detail-line">
+                <span>Driver / operator</span>
+                <strong>Operator 07</strong>
+              </div>
+
+              <div class="detail-line">
+                <span>Current speed</span>
+                <strong id="fleetSpeed">42 km/h</strong>
+              </div>
+
+              <div class="detail-line">
+                <span>GPS gateway</span>
+                <strong>FG-GPS-204</strong>
+              </div>
+
+              <div class="detail-line">
+                <span>Last position update</span>
+                <strong id="gpsUpdated">Just now</strong>
+              </div>
+
+            </article>
+
+          </div>
+        </div>
+
+
+        <div class="fleet-lower-grid">
+
+          <article class="panel cargo-panel">
+
+            <div class="panel-heading">
+              <div>
+                <div class="eyebrow">CARGO ENVIRONMENT</div>
+                <h2>Inside the refrigerated truck</h2>
+                <p>Illustrative cargo bay layout and current environmental readings</p>
+              </div>
+              <span class="status Watch" id="cargoStatus">Temperature watch</span>
+            </div>
+
+            <div class="truck-cutaway">
+
+              <div class="truck-front">
+                CAB<br>
+                <span>TRK-204</span>
+              </div>
+
+              <div class="cargo-bay">
+
+                <div class="cargo-topline">
+                  <span>INSULATED CARGO COMPARTMENT</span>
+                  <span>DOOR SEALED · 98%</span>
+                </div>
+
+                <div class="crate-row">
+                  <div class="produce-crate">
+                    <span>🍅 🍅 🍅</span>
+                    <small>TOMATOES</small>
+                  </div>
+
+                  <div class="produce-crate">
+                    <span>🍅 🍅 🍅</span>
+                    <small>TOMATOES</small>
+                  </div>
+
+                  <div class="produce-crate">
+                    <span>🍅 🍅 🍅</span>
+                    <small>TOMATOES</small>
+                  </div>
+
+                  <div class="produce-crate">
+                    <span>🍅 🍅 🍅</span>
+                    <small>TOMATOES</small>
+                  </div>
+                </div>
+
+                <div class="cargo-sensor">
+                  ◉ TEMP SENSOR · FG-TEMP-204
+                </div>
+
+              </div>
+
+              <div class="truck-wheels">
+                <i></i><i></i><i></i>
+              </div>
+
+            </div>
+
+
+            <div class="cargo-readings">
+
+              <div>
+                <small>Inside cargo</small>
+                <strong id="cargoInside">18.4°C</strong>
+                <em>Air temperature</em>
+              </div>
+
+              <div>
+                <small>Outside ambient</small>
+                <strong id="cargoOutside">31.2°C</strong>
+                <em>External environment</em>
+              </div>
+
+              <div>
+                <small>Humidity</small>
+                <strong id="cargoHumidity">76%</strong>
+                <em>Relative humidity</em>
+              </div>
+
+              <div>
+                <small>Set point</small>
+                <strong>4.0°C</strong>
+                <em>Configured target</em>
+              </div>
+
+            </div>
+          </article>
+
+
+          <article class="panel">
+
+            <div class="panel-heading">
+              <div>
+                <div class="eyebrow">CONSIGNMENT DETAILS</div>
+                <h2>What is being transported?</h2>
+                <p>Linked batch inventory</p>
+              </div>
+            </div>
+
+            <div class="consignment-product">
+              <div class="consignment-emoji">🍅</div>
+              <div>
+                <strong>Fresh tomatoes</strong>
+                <small>Batch TOM-1024</small>
+              </div>
+              <span class="status Watch">Monitor</span>
+            </div>
+
+            <div class="detail-line">
+              <span>Loaded quantity</span>
+              <strong>420 kg</strong>
+            </div>
+
+            <div class="detail-line">
+              <span>Loading temperature</span>
+              <strong>20.0°C</strong>
+            </div>
+
+            <div class="detail-line">
+              <span>Current estimated life</span>
+              <strong id="fleetRemainingLife">7.2 days</strong>
+            </div>
+
+            <div class="detail-line">
+              <span>Transit exposure</span>
+              <strong>28°C peak recorded</strong>
+            </div>
+
+            <div class="notice">
+              <strong>Operational recommendation</strong>
+              <p>
+                Review the refrigeration set point and inspect the batch on arrival.
+                Temperature exposure may accelerate quality deterioration.
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+        <div class="data-provenance fleet-source">
+          <span class="source-dot"></span>
+          Data channel: FG-TRK-204 · Simulated GPS + temperature/humidity telemetry · Hardware adapter ready for ESP32 integration
+        </div>
+
+      </section>
+
+
+      <!-- DECISION CENTER -->
+      <section class="page" id="page-decisions">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">SHELF-LIFE BASED ACTION PLANNING</div>
+            <h1>Decision center</h1>
+            <p>Recommended next steps for every produce batch, prioritised by estimated remaining shelf life.</p>
+          </div>
+          <span class="ai-tag">✳ FRESHNESS ENGINE</span>
+        </div>
+
+        <div class="decision-banner">
+          <div class="decision-banner-icon">✳</div>
+          <div>
+            <strong>From prediction to action</strong>
+            <p>
+              Use the estimated remaining life to prioritise dispatch, inspection,
+              storage review or processing. Always confirm with a physical quality
+              check before taking a food-safety decision.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision-summary" id="decisionSummary"></div>
+        <div class="decision-list" id="decisionList"></div>
+
+        <div class="notice small-notice">
+          <strong>Decision-support disclaimer</strong>
+          <p>
+            Recommendations are generated from the prototype Q10 shelf-life estimate
+            and configured thresholds. They are operational suggestions, not a
+            guarantee of quality or food safety. Actual shelf life varies with
+            variety, maturity, handling, packaging and validated storage conditions.
+          </p>
+        </div>
+
+      </section>
+
+
+      <!-- PROJECT TEAM PAGE -->
+      <section class="page" id="page-team">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">ACADEMIC PROJECT</div>
+            <h1>Project team</h1>
+            <p>The people behind FreshGuard — cold-chain monitoring and freshness intelligence.</p>
+          </div>
+          <span class="team-project-tag">DSEU · FRESHGUARD</span>
+        </div>
+
+
+        <div class="team-hero">
+
+          <img src="assets/dseu-logo.png" alt="DSEU logo">
+
+          <div>
+            <span class="eyebrow">PROJECT PRESENTATION</span>
+            <h2>FreshGuard</h2>
+            <p>Food freshness intelligence for smarter cold-chain decisions.</p>
+          </div>
+
+          <div class="team-hero-symbol">✳</div>
+
+        </div>
+
+
+        <div class="team-grid">
+
+          <!-- TEAM MEMBER 1 -->
+          <article class="team-member featured">
+
+            <div class="member-avatar">PS</div>
+
+            <span class="member-role">TEAM MEMBER 01</span>
+
+            <h3>Prince Srivastava</h3>
+
+            <p>
+              Roll Number:
+              <strong>41623127</strong>
+            </p>
+
+            <span class="member-status">Project team</span>
+
+          </article>
+
+
+          <!-- TEAM MEMBER 2 -->
+          <article class="team-member">
+
+            <div class="member-avatar muted-avatar">M</div>
+
+            <span class="member-role">TEAM MEMBER 02</span>
+
+            <h3>Mukesh</h3>
+
+            <p>
+              Roll Number:
+              <strong>41623042</strong>
+            </p>
+
+            <span class="member-status">Project team</span>
+
+          </article>
+
+
+          <!-- TEAM MEMBER 3 -->
+          <article class="team-member">
+
+            <div class="member-avatar muted-avatar">A</div>
+
+            <span class="member-role">TEAM MEMBER 03</span>
+
+            <h3>Ankit Pandit</h3>
+
+            <p>
+              Roll Number:
+              <strong>41623009</strong>
+            </p>
+
+            <span class="member-status">Project team</span>
+
+          </article>
+
+        </div>
+
+
+        <!-- PROJECT DETAILS -->
+        <div class="team-meta-grid">
+
+          <article class="panel team-meta">
+            <small>SUBJECT</small>
+            <strong>Project</strong>
+          </article>
+
+          <article class="panel team-meta">
+            <small>CAMPUS</small>
+            <strong>DSEU OKHLA 2</strong>
+          </article>
+
+          <article class="panel team-meta">
+            <small>PROFESSOR</small>
+            <strong>Dr. Jitendra Kumar</strong>          </article>
+
+        </div>
+
+        <p class="team-edit-note">
+          Team information can be updated directly in the Project team section of
+          <code>index.html</code>.
+        </p>
+
+      </section>
+
+
+      <!-- LIVE MONITORING PAGE -->
+      <section class="page" id="page-monitoring">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">SENSOR SIMULATION</div>
+            <h1>Live monitoring</h1>
+            <p>Explore temperature and humidity conditions across locations.</p>
+          </div>
+
+          <button class="btn btn-secondary" id="toggleSimulation">
+            Ⅱ Pause simulation
+          </button>
+        </div>
+
+        <div class="monitor-grid" id="monitorCards"></div>
+
+        <article class="panel">
+
+          <div class="panel-heading">
+            <div>
+              <h2>Sensor readings</h2>
+              <p>Environmental readings · connected sensor profile</p>
+            </div>
+            <span class="live-label"><i></i> UPDATING</span>
+          </div>
+
+          <div class="chart-wrap tall">
+            <canvas id="monitorChart"></canvas>
+          </div>
+
+        </article>
+
+        <div class="notice">
+          <strong>Prototype telemetry stream</strong>
+          <p>
+            Current readings are generated locally for this project demonstration.
+            The interface is structured for future ESP32 + DHT22 hardware integration;
+            no physical sensor is connected in this version.
+          </p>
+        </div>
+
+      </section>
+
+
+      <!-- WHAT-IF SIMULATOR -->
+      <section class="page" id="page-simulator">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">DECISION SUPPORT TOOL</div>
+            <h1>What-if simulator</h1>
+            <p>Test how different storage and transportation conditions may affect shelf life.</p>
+          </div>
+          <span class="ai-tag">✳ Q10 MODEL</span>
+        </div>
+
+
+        <div class="sim-layout">
+
+          <article class="panel sim-controls">
+
+            <h2>Configure a scenario</h2>
+            <p class="muted">Change the inputs to compare outcomes.</p>
+
+            <label>
+              Produce
+              <select id="simProduce"></select>
+            </label>
+
+            <label>
+              Reference temperature
+              <output id="refTempOut">20°C</output>
+              <input id="refTemp" type="range" min="0" max="30" value="20">
+            </label>
+
+            <label>
+              Scenario temperature
+              <output id="scenarioTempOut">28°C</output>
+              <input id="scenarioTemp" type="range" min="0" max="40" value="28">
+            </label>
+
+            <label>
+              Exposure duration
+              <output id="durationOut">8 hours</output>
+              <input id="duration" type="range" min="1" max="72" value="8">
+            </label>
+
+            <label>
+              Q10 coefficient
+              <output id="q10Out">2.0</output>
+              <input id="q10" type="range" min="1.5" max="3" step=".1" value="2">
+            </label>
+
+            <button class="btn btn-primary full" id="runSimulation">
+              Calculate impact ↗
+            </button>
+
+          </article>
+
+
+          <div class="sim-results">
+
+            <article class="panel result-hero">
+              <span class="eyebrow">ESTIMATED EQUIVALENT AGE</span>
+              <strong id="equivalentAge">0.58 <small>days</small></strong>
+              <p>Reference-temperature ageing caused by this exposure.</p>
+            </article>
+
+            <div class="stat-grid two">
+
+              <article class="stat-card">
+                <span>Relative spoilage rate</span>
+                <strong id="rateResult">1.74×</strong>
+                <small>Compared to reference conditions</small>
+              </article>
+
+              <article class="stat-card">
+                <span>Extra ageing vs. reference</span>
+                <strong id="extraAge">0.25 <small>days</small></strong>
+                <small>Additional equivalent age</small>
+              </article>
+
+            </div>
+
+            <article class="panel">
+              <h2>Scenario interpretation</h2>
+              <div id="simAdvice" class="scenario-advice"></div>
+
+              <div class="notice small-notice">
+                Model output is an educational estimate, not a food-safety determination.
+                Real results depend on cultivar, maturity, handling, humidity, packaging
+                and validated experimental parameters.
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- ANALYTICS PAGE -->
+      <section class="page" id="page-analytics">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">PERFORMANCE & INSIGHTS</div>
+            <h1>Analytics & reports</h1>
+            <p>Understand freshness trends and make better operational decisions.</p>
+          </div>
+
+          <button class="btn btn-primary" id="exportCsv">
+            ↓ Export inventory CSV
+          </button>
+        </div>
+
+
+        <div class="stat-grid">
+
+          <article class="stat-card">
+            <span>Total inventory weight</span>
+            <strong id="totalWeight">—</strong>
+            <small>Across active batches</small>
+          </article>
+
+          <article class="stat-card">
+            <span>Average temperature</span>
+            <strong id="avgTemp">—</strong>
+            <small>Current batch readings</small>
+          </article>
+
+          <article class="stat-card">
+            <span>Potential priority dispatch</span>
+            <strong id="priorityCount">—</strong>
+            <small>Watch and at-risk batches</small>
+          </article>
+
+          <article class="stat-card">
+            <span>Locations monitored</span>
+            <strong>03</strong>
+            <small>Simulated locations</small>
+          </article>
+
+        </div>
+
+
+        <div class="content-grid">
+
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Remaining shelf life by batch</h2>
+                <p>Estimated days remaining</p>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="lifeChart"></canvas>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Temperature exposure</h2>
+                <p>Illustrative time spent by condition</p>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="exposureChart"></canvas>
+            </div>
+          </article>
+
+        </div>
+
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>How to read these estimates</h2>
+            </div>
+          </div>
+
+          <p class="muted">
+            The Q10 model estimates relative deterioration rate as temperature changes.
+            It does not directly inspect food quality. Use the results to prioritise
+            human inspection and operational decisions, not to certify produce as
+            safe to eat or sell.
+          </p>
+        </article>
+
+      </section>
+
+
+      <footer class="footer">
+        FreshGuard © 2026
+        <span>Educational prototype · Simulated data · Not a food-safety certification tool</span>
+      </footer>
+
+    </main>
+  </div>
+
+
+  <!-- ADD BATCH MODAL -->
+  <div class="modal-backdrop" id="batchModal" aria-hidden="true">
+
+    <div class="modal">
+
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">INVENTORY MANAGEMENT</div>
+          <h2>Add a produce batch</h2>
+        </div>
+
+        <button class="close-btn" data-close>×</button>
+      </div>
+
+
+      <form id="batchForm">
+
+        <div class="form-grid">
+
+          <label>
+            Produce name
+            <input name="name" required placeholder="e.g. Tomatoes">
+          </label>
+
+          <label>
+            Produce type
+            <select name="type">
+              <option>Vegetable</option>
+              <option>Fruit</option>
+            </select>
+          </label>
+
+          <label>
+            Batch ID
+            <input name="id" required placeholder="e.g. TOM-2048">
+          </label>
+
+          <label>
+            Quantity (kg)
+            <input name="quantity" type="number" min="1" required value="100">
+          </label>
+
+          <label>
+            Current temperature (°C)
+            <input name="temperature" type="number" step=".1" required value="18">
+          </label>
+
+          <label>
+            Humidity (%)
+            <input name="humidity" type="number" min="0" max="100" value="80">
+          </label>
+
+          <label>
+            Reference shelf life (days)
+            <input name="shelfLife" type="number" min="1" value="10">
+          </label>
+
+          <label>
+            Reference temperature (°C)
+            <input name="referenceTemp" type="number" value="20">
+          </label>
+
+          <label>
+            Q10 coefficient
+            <input name="q10" type="number" min="1" max="4" step=".1" value="2">
+          </label>
+
+          <label>
+            Current location
+            <select name="location">
+              <option>Warehouse A</option>
+              <option>Transit truck</option>
+              <option>Warehouse B</option>
+            </select>
+          </label>
+
+        </div>
+
+        <p class="form-hint">
+          Use validated parameters for real produce. Newly added demo batches begin with zero recorded age.
+        </p>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+          <button class="btn btn-primary" type="submit">Create batch</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+
+  <div class="toast" id="toast"></div>
+
+
+  <!-- JAVASCRIPT FILES -->
+  <script src="js/mockData.js"></script>
+  <script src="js/shelfLifeEngine.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/recommendations.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
