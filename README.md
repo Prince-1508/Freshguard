@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FreshGuard — Smart Food Freshness Intelligence
 
 A GitHub Pages-ready static prototype for produce inventory, cold-chain journey traceability, refrigerated truck telemetry visualisation and Q10-based shelf-life estimation.
@@ -59,3 +60,7 @@ All project assets use relative paths and work from a repository subpath.
 ### Shelf-life action thresholds
 
 These are configurable prototype decision-support thresholds, not food-safety rules. A physical quality inspection and the organisation's validated handling procedures must take precedence over model estimates.
+=======
+# Freshguard
+Iot Based Food Processing Application
+>>>>>>> bc588c0861cfe5de04487cb97e0dda9bdbec0295
