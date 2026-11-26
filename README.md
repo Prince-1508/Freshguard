@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # FreshGuard — Smart Food Freshness Intelligence
 
 A GitHub Pages-ready static prototype for produce inventory, cold-chain journey traceability, refrigerated truck telemetry visualisation and Q10-based shelf-life estimation.
