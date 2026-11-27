@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101b2b">
+  <meta name="description" content="FreshGuard — Food Freshness Intelligence and Cold-Chain Monitoring">
   <title>FreshGuard — Food Freshness Intelligence</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +24,7 @@
     <div class="intro-orbit orbit-two"></div>
 
     <div class="intro-content">
-      <div class="intro-kicker">A UNIVERSITY PROJECT PRESENTATION</div>
+      <div class="intro-kicker">UNIVERSITY PROJECT PRESENTATION</div>
 
       <div class="intro-partners">
         <div class="intro-logo-card">
@@ -120,7 +122,7 @@
           <span class="pulse"></span>
           <div>
             <strong>Simulation mode</strong>
-            <small>Prototype telemetry active</small>
+            <small>Telemetry simulation active</small>
           </div>
         </div>
 
@@ -128,7 +130,7 @@
           <div class="avatar">FG</div>
           <div>
             <strong>FreshGuard Admin</strong>
-            <small>Demo organisation</small>
+            <small>FreshGuard Workspace</small>
           </div>
           <span class="dots">•••</span>
         </div>
@@ -148,7 +150,7 @@
         </div>
 
         <div class="top-actions">
-          <span class="demo-pill"><i></i> DEMO ENVIRONMENT</span>
+          <span class="demo-pill"><i></i> SYSTEM ACTIVE</span>
           <button class="icon-btn" id="alertsButton" title="View alerts">
             ♧<em id="alertDot"></em>
           </button>
@@ -163,8 +165,8 @@
         <div class="page-heading">
           <div>
             <div class="eyebrow">
-              THURSDAY, NOVEMBER 26, 2026
-              <span class="live-label"><i></i> SIMULATED LIVE</span>
+              <span id="currentDate">THURSDAY, NOVEMBER 26, 2026</span>
+              <span class="live-label"><i></i> SYSTEM MONITORING</span>
             </div>
             <h1>Good afternoon, Admin.</h1>
             <p>Here's what's happening across your cold-chain operations.</p>
@@ -220,7 +222,7 @@
             <div class="panel-heading">
               <div>
                 <h2>Temperature overview</h2>
-                <p>Telemetry trend · rolling 12-hour window</p>
+                <p>Temperature trend · Rolling 12-hour window</p>
               </div>
 
               <select id="temperatureRange">
@@ -360,7 +362,7 @@
 
           <div class="data-provenance">
             <span class="source-dot"></span>
-            Telemetry profile: FG-TRK-204 · GPS + temperature gateway · Prototype stream
+            Telemetry profile: FG-TRK-204 · GPS + temperature gateway · Simulated telemetry
           </div>
         </article>
 
@@ -380,11 +382,13 @@
               <thead>
                 <tr>
                   <th>PRODUCT / BATCH</th>
+                  <th>TYPE</th>
+                  <th>QUANTITY</th>
                   <th>LOCATION</th>
                   <th>TEMP.</th>
                   <th>REMAINING LIFE</th>
                   <th>STATUS</th>
-                  <th></th>
+                  <th>ACTION</th>
                 </tr>
               </thead>
               <tbody id="priorityTable"></tbody>
@@ -410,7 +414,7 @@
             <div class="panel-heading">
               <div>
                 <h2>Recent activity</h2>
-                <p>Latest simulated supply-chain events</p>
+                <p>Latest supply-chain events</p>
               </div>
             </div>
             <div id="activityList" class="activity-list"></div>
@@ -552,7 +556,7 @@
               </svg>
 
               <div class="map-caption">
-                <span>LIVE VEHICLE POSITION</span>
+                <span>VEHICLE POSITION</span>
                 <strong id="routeProgressText">68% route completed</strong>
               </div>
 
@@ -857,66 +861,33 @@
 
         <div class="team-grid">
 
-          <!-- TEAM MEMBER 1 -->
           <article class="team-member featured">
-
             <div class="member-avatar">PS</div>
-
             <span class="member-role">TEAM MEMBER 01</span>
-
             <h3>Prince Srivastava</h3>
-
-            <p>
-              Roll Number:
-              <strong>41623127</strong>
-            </p>
-
+            <p>Roll Number: <strong>41623127</strong></p>
             <span class="member-status">Project team</span>
-
           </article>
 
-
-          <!-- TEAM MEMBER 2 -->
           <article class="team-member">
-
             <div class="member-avatar muted-avatar">M</div>
-
             <span class="member-role">TEAM MEMBER 02</span>
-
             <h3>Mukesh</h3>
-
-            <p>
-              Roll Number:
-              <strong>41623042</strong>
-            </p>
-
+            <p>Roll Number: <strong>41623042</strong></p>
             <span class="member-status">Project team</span>
-
           </article>
 
-
-          <!-- TEAM MEMBER 3 -->
           <article class="team-member">
-
             <div class="member-avatar muted-avatar">A</div>
-
             <span class="member-role">TEAM MEMBER 03</span>
-
             <h3>Ankit Pandit</h3>
-
-            <p>
-              Roll Number:
-              <strong>41623009</strong>
-            </p>
-
+            <p>Roll Number: <strong>41623009</strong></p>
             <span class="member-status">Project team</span>
-
           </article>
 
         </div>
 
 
-        <!-- PROJECT DETAILS -->
         <div class="team-meta-grid">
 
           <article class="panel team-meta">
@@ -931,7 +902,8 @@
 
           <article class="panel team-meta">
             <small>PROFESSOR</small>
-            <strong>Dr. Jitendra Kumar</strong>          </article>
+            <strong>Dr. Jitendra Kumar</strong>
+          </article>
 
         </div>
 
@@ -948,7 +920,7 @@
 
         <div class="page-heading">
           <div>
-            <div class="eyebrow">SENSOR SIMULATION</div>
+            <div class="eyebrow">SENSOR MONITORING</div>
             <h1>Live monitoring</h1>
             <p>Explore temperature and humidity conditions across locations.</p>
           </div>
@@ -965,7 +937,7 @@
           <div class="panel-heading">
             <div>
               <h2>Sensor readings</h2>
-              <p>Environmental readings · connected sensor profile</p>
+              <p>Environmental readings · Sensor profiles</p>
             </div>
             <span class="live-label"><i></i> UPDATING</span>
           </div>
@@ -977,9 +949,9 @@
         </article>
 
         <div class="notice">
-          <strong>Prototype telemetry stream</strong>
+          <strong>Telemetry information</strong>
           <p>
-            Current readings are generated locally for this project demonstration.
+            Current readings are generated locally for this project presentation.
             The interface is structured for future ESP32 + DHT22 hardware integration;
             no physical sensor is connected in this version.
           </p>
@@ -1124,7 +1096,7 @@
           <article class="stat-card">
             <span>Locations monitored</span>
             <strong>03</strong>
-            <small>Simulated locations</small>
+            <small>Monitored locations</small>
           </article>
 
         </div>
@@ -1265,7 +1237,7 @@
         </div>
 
         <p class="form-hint">
-          Use validated parameters for real produce. Newly added demo batches begin with zero recorded age.
+          Use validated parameters for real produce. Newly added batches begin with zero recorded age.
         </p>
 
         <div class="modal-actions">
@@ -1289,6 +1261,24 @@
   <script src="js/recommendations.js"></script>
   <script src="js/charts.js"></script>
   <script src="js/app.js"></script>
+
+  <!-- DYNAMIC DATE -->
+  <script>
+    (function () {
+      const dateElement = document.getElementById("currentDate");
+
+      if (dateElement) {
+        const today = new Date();
+
+        dateElement.textContent = today.toLocaleDateString("en-US", {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+          year: "numeric"
+        }).toUpperCase();
+      }
+    })();
+  </script>
 
 </body>
 </html>
